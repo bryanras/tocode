@@ -1,0 +1,328 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7509,        235]*)
+(*NotebookOutlinePosition[      8452,        265]*)
+(*  CellTagsIndexPosition[      8408,        261]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(<< LinearAlgebra`MatrixManipulation`\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Get\ the\ time\ derivative . \ 
+            It\ will\ be\ this\ thing\ times\ phi - \(\(dot\)\(.\)\)\ *) \)], \
+"Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"dxdt", "=", 
+        RowBox[{
+          RowBox[{\(Cos[\[Phi]]\/10\), 
+            RowBox[{"(", GridBox[{
+                  {\(Cos[\[Phi]]\)},
+                  {\(Sin[\[Phi]]\)}
+                  }], ")"}]}], "+", 
+          RowBox[{\((\[Alpha] + Sin[\[Phi]]\/10)\), 
+            RowBox[{"(", GridBox[{
+                  {\(-Sin[\[Phi]]\)},
+                  {\(Cos[\[Phi]]\)}
+                  }], ")"}]}]}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+    \( (*\ 
+      Get\ the\ projection\ onto\ the\ tangent\ \(\(space\)\(.\)\)\ *) \)], \
+"Input"],
+
+Cell[BoxData[
+    \(\(tanny = 
+        dxdt/\[Sqrt]\((\((\(Cos[\[Phi]]\/10\) Cos[\[Phi]] - \((\[Alpha] + \
+Sin[\[Phi]]\/10)\) Sin[\[Phi]])\)\^2 + \((\(Cos[\[Phi]]\/10\) Sin[\[Phi]] + \
+\((\[Alpha] + Sin[\[Phi]]\/10)\) Cos[\[Phi]])\)\^2)\);\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Simplify[tanny] // MatrixForm\)], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(\(Cos[2\ \[Phi]] - 
+                    10\ \[Alpha]\ Sin[\[Phi]]\)\/\@\(1 + 100\ \[Alpha]\^2 + \
+20\ \[Alpha]\ Sin[\[Phi]]\)\)},
+            {\(\(2\ Cos[\[Phi]]\ \((5\ \[Alpha] + 
+                        Sin[\[Phi]])\)\)\/\@\(1 + 100\ \[Alpha]\^2 + 20\ \
+\[Alpha]\ Sin[\[Phi]]\)\)}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(pt = tanny . Transpose[tanny]; Simplify[MatrixForm[pt]]\)], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(\((Cos[2\ \[Phi]] - 10\ \[Alpha]\ Sin[\[Phi]])\)\^2\/\(1 + 
+                    100\ \[Alpha]\^2 + 
+                    20\ \[Alpha]\ Sin[\[Phi]]\)\), \(\(2\ Cos[\[Phi]]\ \((5\ \
+\[Alpha] + Sin[\[Phi]])\)\ \((Cos[2\ \[Phi]] - 
+                        10\ \[Alpha]\ Sin[\[Phi]])\)\)\/\(1 + 
+                    100\ \[Alpha]\^2 + 20\ \[Alpha]\ Sin[\[Phi]]\)\)},
+            {\(\(2\ Cos[\[Phi]]\ \((5\ \[Alpha] + 
+                        Sin[\[Phi]])\)\ \((Cos[2\ \[Phi]] - 
+                        10\ \[Alpha]\ Sin[\[Phi]])\)\)\/\(1 + 
+                    100\ \[Alpha]\^2 + 
+                    20\ \[Alpha]\ Sin[\[Phi]]\)\), \(\(4\ Cos[\[Phi]]\^2\ \
+\((5\ \[Alpha] + Sin[\[Phi]])\)\^2\)\/\(1 + 100\ \[Alpha]\^2 + 
+                    20\ \[Alpha]\ Sin[\[Phi]]\)\)}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ Get\ the\ vector\ field\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(vecfield1[x1_, x2_] := 
+        x1 - x2 - x1 \((x1\^2 + x2\^2)\);\)\), "\[IndentingNewLine]", 
+    \(\(vecfield2[x1_, x2_] := 
+        x1 + x2 - x2 \((x1\^2 + x2\^2)\);\)\)}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"\[CapitalPhi]", "=", 
+        RowBox[{"(", GridBox[{
+              {\(vecfield1[\((\[Alpha] + Sin[\[Phi]]/10)\) 
+                    Cos[\[Phi]], \((\[Alpha] + Sin[\[Phi]]/10)\) 
+                    Sin[\[Phi]]]\)},
+              {\(vecfield2[\((\[Alpha] + Sin[\[Phi]]/10)\) 
+                    Cos[\[Phi]], \((\[Alpha] + Sin[\[Phi]]/10)\) 
+                    Sin[\[Phi]]]\)}
+              }], ")"}]}], 
+      ";", \(Simplify[MatrixForm[\[CapitalPhi]]]\)}]], "Input"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(\(\((10\ \[Alpha] + 
+                        Sin[\[Phi]])\)\ \((\((399 - 
+                              400\ \[Alpha]\^2)\)\ Cos[\[Phi]] + 
+                        Cos[3\ \[Phi]] - 
+                        80\ \((5 + \[Alpha]\ Cos[\[Phi]])\)\ Sin[\[Phi]])\)\)\
+\/4000\)},
+            {\(\(\((10\ \[Alpha] + Sin[\[Phi]])\)\ \((400\ Cos[\[Phi]] + 
+                        2\ Sin[\[Phi]]\ \((199 - 200\ \[Alpha]\^2 + 
+                              Cos[2\ \[Phi]] - 
+                              40\ \[Alpha]\ Sin[\[Phi]])\))\)\)\/4000\)}
+            }], "\[NoBreak]", ")"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ 
+      Here\ is\ the\ vector\ field\ projected\ onto\ the\ tangent\ \
+\(\(plane\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\[Alpha] = 3/2; \[Phi] = \[Pi]/3;\)], "Input"],
+
+Cell[BoxData[
+    \(Clear[\[Alpha]]; Clear[\[Phi]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[pt . \[CapitalPhi]]\)], "Input"],
+
+Cell[BoxData[
+    \({{\(-1.2832577298654297`\)}, {0.795809008098554`}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ And\ here\ is\ the\ \(\(derivative\)\(.\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[dxdt]\)], "Input"],
+
+Cell[BoxData[
+    \({{\(-1.349038105676658`\)}, {0.8366025403784438`}}\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)\( (*\ 
+      Check\ to\ make\ sure\ everything\ is\ in\ the\ correct\ \
+\(\(direction\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[dxdt]/VectorNorm[{\(-1.34904\), 0.836603}, 2]\)], "Input"],
+
+Cell[BoxData[
+    \({{\(-0.8498455758391127`\)}, {0.5270295662402837`}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[pt . \[CapitalPhi]]/VectorNorm[{\(-1.28326\), 0.79581}, 2]\)], "Input"],
+
+Cell[BoxData[
+    \({{\(-0.849845187372442`\)}, {0.5270293253336688`}}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[tanny]\)], "Input"],
+
+Cell[BoxData[
+    \({{\(-0.8498465674131587`\)}, {0.5270301811623992`}}\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{872, 600},
+WindowMargins->{{82, Automatic}, {Automatic, 88}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Landscape",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "mmcas"}, "checker.nb.ps", CharacterEncoding -> \
+"ISO8859-1"],
+"Magnification"->1},
+Magnification->1.5
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 69, 1, 39, "Input"],
+Cell[1777, 53, 145, 3, 39, "Input"],
+Cell[1925, 58, 470, 13, 68, "Input"],
+Cell[2398, 73, 112, 3, 39, "Input"],
+Cell[2513, 78, 254, 4, 203, "Input"],
+
+Cell[CellGroupData[{
+Cell[2792, 86, 62, 1, 39, "Input"],
+Cell[2857, 89, 478, 11, 129, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3372, 105, 88, 1, 39, "Input"],
+Cell[3463, 108, 962, 18, 127, "Output"]
+}, Open  ]],
+Cell[4440, 129, 66, 1, 39, "Input"],
+Cell[4509, 132, 207, 4, 78, "Input"],
+
+Cell[CellGroupData[{
+Cell[4741, 140, 511, 11, 88, "Input"],
+Cell[5255, 153, 731, 15, 131, "Output"]
+}, Open  ]],
+Cell[6001, 171, 162, 3, 62, "Input"],
+Cell[6166, 176, 66, 1, 39, "Input"],
+Cell[6235, 179, 63, 1, 39, "Input"],
+
+Cell[CellGroupData[{
+Cell[6323, 184, 54, 1, 39, "Input"],
+Cell[6380, 187, 84, 1, 38, "Output"]
+}, Open  ]],
+Cell[6479, 191, 86, 1, 39, "Input"],
+
+Cell[CellGroupData[{
+Cell[6590, 196, 40, 1, 39, "Input"],
+Cell[6633, 199, 84, 1, 38, "Output"]
+}, Open  ]],
+Cell[6732, 203, 185, 3, 85, "Input"],
+
+Cell[CellGroupData[{
+Cell[6942, 210, 80, 1, 39, "Input"],
+Cell[7025, 213, 85, 1, 38, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7147, 219, 93, 1, 39, "Input"],
+Cell[7243, 222, 84, 1, 38, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7364, 228, 41, 1, 39, "Input"],
+Cell[7408, 231, 85, 1, 38, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

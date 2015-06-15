@@ -1,0 +1,3 @@
+x'=(lam-b)*x-c*y+x*(z+d*(1-z^2));
+y'=c*x+(lam-b)*y+y*(z+d*(1-z^2));
+z'=lam*z-(x^2+y^2+z^2);

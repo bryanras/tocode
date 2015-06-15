@@ -1,0 +1,9 @@
+The code in this directory has the following properties:
+
+1. Orthogonality condition
+2. Standard approach (i.e., normal projection) to solving this condition. 
+3. Torus is the peanut in 2d.
+4. Use the box scheme.
+
+
+See the notes on 6/13/02.

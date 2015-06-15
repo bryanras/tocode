@@ -1,0 +1,299 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6155,        209]*)
+(*NotebookOutlinePosition[      7193,        244]*)
+(*  CellTagsIndexPosition[      7121,        238]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ 
+      This\ is\ just\ a\ sheet\ for\ checking\ my\ algebra\ in\ the\ \
+derivation\ of\ the\ normal\ \(\(vectors\)\(.\)\)\ *) \)], "Input"],
+
+Cell["<<Calculus`VectorAnalysis`", "Input",
+  CellTags->"S5.16.1"],
+
+Cell[BoxData[{
+    \(\(\[Mu]1\  = \((\ Cos[\[Phi]1] - Sin[\[Phi]1])\)/
+          6;\)\), "\[IndentingNewLine]", 
+    \(\(\[Mu]2\  = \((\ Cos[\[Phi]2] - Sin[\[Phi]2])\)/
+          6;\)\), "\[IndentingNewLine]", 
+    \(\(\[Mu]3\  = \((\ Cos[\[Phi]3] - Sin[\[Phi]3])\)/6;\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(\[Nu]1\  = \((\ Cos[\[Phi]1] + Sin[\[Phi]1])\)/
+          6;\)\), "\[IndentingNewLine]", 
+    \(\(\[Nu]2\  = \((\ Cos[\[Phi]2] + Sin[\[Phi]2])\)/
+          6;\)\), "\[IndentingNewLine]", 
+    \(\(\[Nu]3\  = \((\ Cos[\[Phi]3] + Sin[\[Phi]3])\)/6;\)\)}], "Input"],
+
+Cell[BoxData[
+    \( (*\ Enter\ the\ \(\(derivatives\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(x\  = \ {\(-Sin[\[Phi]1]\), Cos[\[Phi]1], 0, 0, 0, 
+          0, \[Mu]1, \[Nu]1};\)\), "\[IndentingNewLine]", 
+    \(\(y\  = \ {0, 0, \(-Sin[\[Phi]2]\), Cos[\[Phi]2], 0, 
+          0, \[Mu]2, \[Nu]2};\)\), "\[IndentingNewLine]", 
+    \(\(z\  = \ {0, 0, 0, 0, \(-Sin[\[Phi]3]\), 
+          Cos[\[Phi]3], \[Mu]3, \[Nu]3};\)\)}], "Input"],
+
+Cell[BoxData[
+    \( (*\ Enter\ the\ normal\ \(\(vectors\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(a = {Cos[\[Phi]1], Sin[\[Phi]1], 0, 0, 0, 0, 0, 
+          0};\)\), "\[IndentingNewLine]", 
+    \(\(b = {0, 0, Cos[\[Phi]2], Sin[\[Phi]2], 0, 0, 0, 
+          0};\)\), "\[IndentingNewLine]", 
+    \(\(c = {0, 0, 0, 0, Cos[\[Phi]3], Sin[\[Phi]3], 0, 0};\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(d = {Sin[\[Phi]1] \[Mu]1, \(-Cos[\[Phi]1]\) \[Mu]1, 
+          Sin[\[Phi]2] \[Mu]2, \(-Cos[\[Phi]2]\) \[Mu]2, 
+          Sin[\[Phi]3] \[Mu]3, \(-Cos[\[Phi]3]\) \[Mu]3, \ 1, 
+          0};\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\[Xi] = \(\[Mu]1*\[Nu]1 + \[Mu]2*\[Nu]2 + \[Mu]3*\[Nu]3\)\/\(1 + \
+\[Mu]1\^2 + \[Mu]2\^2 + \[Mu]3\^2\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(e = {\((\[Nu]1 - \[Mu]1*\[Xi])\) 
+            Sin[\[Phi]1], \((\(-\[Nu]1\) + \[Mu]1*\[Xi])\) 
+            Cos[\[Phi]1]\ , \((\[Nu]2 - \[Mu]2*\[Xi])\) 
+            Sin[\[Phi]2], \((\(-\[Nu]2\) + \[Mu]2*\[Xi])\) 
+            Cos[\[Phi]2], \((\[Nu]3 - \[Mu]3*\[Xi])\) 
+            Sin[\[Phi]3], \((\(-\[Nu]3\) + \[Mu]3*\[Xi])\) 
+            Cos[\[Phi]3], \(-\[Xi]\), 1};\)\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ 
+      Multiply\ all\ these\ to\ make\ sure\ we\ have\ normal\ \
+\(\(vectors\)\(.\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(a . x // Simplify\), "\[IndentingNewLine]", 
+    \(b . x // \ Simplify\), "\[IndentingNewLine]", 
+    \(c . x // Simplify\), "\[IndentingNewLine]", 
+    \(d . x // Simplify\), "\[IndentingNewLine]", 
+    \(e . x // Simplify\), "\[IndentingNewLine]", 
+    \(a . y // Simplify\ \), "\[IndentingNewLine]", 
+    \(b . y // \ Simplify\), "\[IndentingNewLine]", 
+    \(c . y // Simplify\), "\[IndentingNewLine]", 
+    \(d . y // Simplify\), "\[IndentingNewLine]", 
+    \(e . y // Simplify\)}], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ 
+      Check\ for\ orthogonality\ between\ the\ normal\ vectors\ \
+\(\(themselves\)\(.\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(a . d // Simplify\ \), "\[IndentingNewLine]", 
+    \(b . d // \ Simplify\), "\[IndentingNewLine]", 
+    \(c . d // Simplify\), "\[IndentingNewLine]", 
+    \(a . e // Simplify\ \), "\[IndentingNewLine]", 
+    \(b . e // \ Simplify\), "\[IndentingNewLine]", 
+    \(c . e // Simplify\)}], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ Now\ comes\ the\ big\ \(\(test\)\(.\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(d . e // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.2 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{520, 600},
+WindowMargins->{{150, Automatic}, {Automatic, 52}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "mmcas"}, "normalchk.nb.ps", CharacterEncoding -> \
+"iso8859-1"],
+"Magnification"->1}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "S5.16.1"->{
+    Cell[1921, 56, 66, 1, 27, "Input",
+      CellTags->"S5.16.1"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"S5.16.1", 7028, 231}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 164, 3, 43, "Input"],
+Cell[1921, 56, 66, 1, 27, "Input",
+  CellTags->"S5.16.1"],
+Cell[1990, 59, 284, 5, 59, "Input"],
+Cell[2277, 66, 284, 5, 59, "Input"],
+Cell[2564, 73, 79, 1, 27, "Input"],
+Cell[2646, 76, 358, 6, 59, "Input"],
+Cell[3007, 84, 83, 1, 27, "Input"],
+Cell[3093, 87, 290, 5, 59, "Input"],
+Cell[3386, 94, 224, 4, 43, "Input"],
+Cell[3613, 100, 140, 2, 47, "Input"],
+Cell[3756, 104, 404, 7, 59, "Input"],
+Cell[4163, 113, 128, 3, 27, "Input"],
+
+Cell[CellGroupData[{
+Cell[4316, 120, 517, 10, 171, "Input"],
+Cell[4836, 132, 35, 1, 27, "Output"],
+Cell[4874, 135, 35, 1, 27, "Output"],
+Cell[4912, 138, 35, 1, 27, "Output"],
+Cell[4950, 141, 35, 1, 27, "Output"],
+Cell[4988, 144, 35, 1, 27, "Output"],
+Cell[5026, 147, 35, 1, 27, "Output"],
+Cell[5064, 150, 35, 1, 27, "Output"],
+Cell[5102, 153, 35, 1, 27, "Output"],
+Cell[5140, 156, 35, 1, 27, "Output"],
+Cell[5178, 159, 35, 1, 27, "Output"]
+}, Open  ]],
+Cell[5228, 163, 133, 3, 43, "Input"],
+
+Cell[CellGroupData[{
+Cell[5386, 170, 315, 6, 107, "Input"],
+Cell[5704, 178, 35, 1, 27, "Output"],
+Cell[5742, 181, 35, 1, 27, "Output"],
+Cell[5780, 184, 35, 1, 27, "Output"],
+Cell[5818, 187, 35, 1, 27, "Output"],
+Cell[5856, 190, 35, 1, 27, "Output"],
+Cell[5894, 193, 35, 1, 27, "Output"]
+}, Open  ]],
+Cell[5944, 197, 82, 1, 27, "Input"],
+
+Cell[CellGroupData[{
+Cell[6051, 202, 50, 1, 27, "Input"],
+Cell[6104, 205, 35, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

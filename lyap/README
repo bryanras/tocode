@@ -1,0 +1,49 @@
+Here there are the following programs:
+
+- newtms
+% this function performs the Newton loop for the
+% multiple shooting solution of a periodic DE
+
+- musstep
+% this function sets up the multiple shooting matrix
+% arising during Newton's method for periodic DEs
+% It further solves the system for the Newton's correction
+% and returns the transition matrices at the shooting points
+
+- rk38
+% this function takes one integration step with RK-38 rule
+% of the differential equations to be solved to set up
+% the multiple shooting matrix
+
+- msfun
+% this function sets up the vector field of the DE to be solved
+% as well as the linearized vector field and the tau-derivative
+% differential equation in a form suitable for the MS method
+
+- vdp & Dvdp
+% function and derivative (Jacobian) of the van der Pol problem
+
+- monod
+% this function gets the monodromy matrix
+ 
+
+---- Typical use of these routines ----
+
+We need to call only the routine "newtms" by specifying input parameters
+(look at comments in this routine),  It is important to appreciate that
+we are doing Newton's method, so convergence to the desired periodic
+solution will occur ONLY if we start reasonably close.
+
+Example script of use of routine:
+
+f='vdp'; Df='Dvdp'; v0=[1;1]; % specified vector field and Jacobian, and phase vector
+tol=1.e-8; maxit=10; % specified Newton's tolerance and max number of iterations
+N=10; h=0.01; % specified number of MS intervals and integration stepsize
+s=.... % here we need to specify initial guess, s is (2,N) vector
+tau=...; % here we need to specfiy initial guess of period
+
+[s,tau,YY,flag]=newtms(s,tau,N,h,v0,f,Df,tol,maxit); % call to routine
+% for what it returns check documentation
+
+M=monod(YY);  % returns monodromy
+M=full(M); eig(M) % returns multipliers

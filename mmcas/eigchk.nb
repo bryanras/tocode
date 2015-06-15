@@ -1,0 +1,525 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     13788,        450]*)
+(*NotebookOutlinePosition[     14731,        480]*)
+(*  CellTagsIndexPosition[     14687,        476]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(\(c1 = \(-a\) - b + c;\)\), "\[IndentingNewLine]", 
+    \(\(c2 = \(-a\) + b + c;\)\), "\[IndentingNewLine]", 
+    \(\(c3 = a - b + c;\)\), "\[IndentingNewLine]", 
+    \(\(c4 = a + b + c;\)\)}], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"A", "=", 
+        RowBox[{"(", GridBox[{
+              {"c1", "c2", "0", "c3", "c4", "0"},
+              {"0", "c1", "c2", "0", "c3", "c4"},
+              {"c2", "0", "c1", "c4", "0", "c3"},
+              {"c3", "c4", "0", "c1", "c2", "0"},
+              {"0", "c3", "c4", "0", "c1", "c2"},
+              {"c4", "0", "c3", "c2", "0", "c1"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Eigenvalues[A] // Simplify\) // MatrixForm\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(c1 + c2 - c3 - c4\)},
+            {\(c1 + c2 + c3 + c4\)},
+            {\(c1 - c2\/2 + c3 - c4\/2 - 
+                1\/2\ \@3\ \@\(-\((c2 + c4)\)\^2\)\)},
+            {\(c1 + 
+                1\/2\ \((\(-c2\) + 2\ c3 - 
+                      c4 + \@3\ \@\(-\((c2 + c4)\)\^2\))\)\)},
+            {\(1\/2\ \((2\ c1 - c2 - 2\ c3 - \@3\ \@\(-\((c2 - c4)\)\^2\) + 
+                    c4)\)\)},
+            {\(1\/2\ \((2\ c1 - c2 - 2\ c3 + \@3\ \@\(-\((c2 - c4)\)\^2\) + 
+                    c4)\)\)}
+            }], "\[NoBreak]", ")"}],
+      MatrixForm[ {
+        Plus[ c1, c2, 
+          Times[ -1, c3], 
+          Times[ -1, c4]], 
+        Plus[ c1, c2, c3, c4], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ -1, 2], c2], c3, 
+          Times[ 
+            Rational[ -1, 2], c4], 
+          Times[ 
+            Rational[ -1, 2], 
+            Power[ 3, 
+              Rational[ 1, 2]], 
+            Power[ 
+              Times[ -1, 
+                Power[ 
+                  Plus[ c2, c4], 2]], 
+              Rational[ 1, 2]]]], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ 1, 2], 
+            Plus[ 
+              Times[ -1, c2], 
+              Times[ 2, c3], 
+              Times[ -1, c4], 
+              Times[ 
+                Power[ 3, 
+                  Rational[ 1, 2]], 
+                Power[ 
+                  Times[ -1, 
+                    Power[ 
+                      Plus[ c2, c4], 2]], 
+                  Rational[ 1, 2]]]]]], 
+        Times[ 
+          Rational[ 1, 2], 
+          Plus[ 
+            Times[ 2, c1], 
+            Times[ -1, c2], 
+            Times[ -2, c3], 
+            Times[ -1, 
+              Power[ 3, 
+                Rational[ 1, 2]], 
+              Power[ 
+                Times[ -1, 
+                  Power[ 
+                    Plus[ c2, 
+                      Times[ -1, c4]], 2]], 
+                Rational[ 1, 2]]], c4]], 
+        Times[ 
+          Rational[ 1, 2], 
+          Plus[ 
+            Times[ 2, c1], 
+            Times[ -1, c2], 
+            Times[ -2, c3], 
+            Times[ 
+              Power[ 3, 
+                Rational[ 1, 2]], 
+              Power[ 
+                Times[ -1, 
+                  Power[ 
+                    Plus[ c2, 
+                      Times[ -1, c4]], 2]], 
+                Rational[ 1, 2]]], c4]]}]]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"B", "=", 
+        RowBox[{"(", GridBox[{
+              {"c1", "c2", "c3", "c4", "0", "0"},
+              {"c2", "c1", "c4", "c3", "0", "0"},
+              {"0", "0", "c1", "c2", "c3", "c4"},
+              {"0", "0", "c2", "c1", "c4", "c3"},
+              {"c3", "c4", "0", "0", "c1", "c2"},
+              {"c4", "c3", "0", "0", "c2", "c1"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Eigenvalues[B] // Simplify\) // MatrixForm\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(c1 - c2 + c3 - c4\)},
+            {\(c1 + c2 + c3 + c4\)},
+            {\(c1 + c2 - c3\/2 - c4\/2 - 
+                1\/2\ \@3\ \@\(-\((c3 + c4)\)\^2\)\)},
+            {\(c1 + 
+                1\/2\ \((2\ c2 - c3 - 
+                      c4 + \@3\ \@\(-\((c3 + c4)\)\^2\))\)\)},
+            {\(1\/2\ \((2\ c1 - 2\ c2 - c3 - \@3\ \@\(-\((c3 - c4)\)\^2\) + 
+                    c4)\)\)},
+            {\(1\/2\ \((2\ c1 - 2\ c2 - c3 + \@3\ \@\(-\((c3 - c4)\)\^2\) + 
+                    c4)\)\)}
+            }], "\[NoBreak]", ")"}],
+      MatrixForm[ {
+        Plus[ c1, 
+          Times[ -1, c2], c3, 
+          Times[ -1, c4]], 
+        Plus[ c1, c2, c3, c4], 
+        Plus[ c1, c2, 
+          Times[ 
+            Rational[ -1, 2], c3], 
+          Times[ 
+            Rational[ -1, 2], c4], 
+          Times[ 
+            Rational[ -1, 2], 
+            Power[ 3, 
+              Rational[ 1, 2]], 
+            Power[ 
+              Times[ -1, 
+                Power[ 
+                  Plus[ c3, c4], 2]], 
+              Rational[ 1, 2]]]], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ 1, 2], 
+            Plus[ 
+              Times[ 2, c2], 
+              Times[ -1, c3], 
+              Times[ -1, c4], 
+              Times[ 
+                Power[ 3, 
+                  Rational[ 1, 2]], 
+                Power[ 
+                  Times[ -1, 
+                    Power[ 
+                      Plus[ c3, c4], 2]], 
+                  Rational[ 1, 2]]]]]], 
+        Times[ 
+          Rational[ 1, 2], 
+          Plus[ 
+            Times[ 2, c1], 
+            Times[ -2, c2], 
+            Times[ -1, c3], 
+            Times[ -1, 
+              Power[ 3, 
+                Rational[ 1, 2]], 
+              Power[ 
+                Times[ -1, 
+                  Power[ 
+                    Plus[ c3, 
+                      Times[ -1, c4]], 2]], 
+                Rational[ 1, 2]]], c4]], 
+        Times[ 
+          Rational[ 1, 2], 
+          Plus[ 
+            Times[ 2, c1], 
+            Times[ -2, c2], 
+            Times[ -1, c3], 
+            Times[ 
+              Power[ 3, 
+                Rational[ 1, 2]], 
+              Power[ 
+                Times[ -1, 
+                  Power[ 
+                    Plus[ c3, 
+                      Times[ -1, c4]], 2]], 
+                Rational[ 1, 2]]], c4]]}]]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"AA", "=", 
+        RowBox[{"(", GridBox[{
+              {"c1", "c2", "0", "c3", "c4", "0", "0", "0", "0"},
+              {"0", "c1", "c2", "0", "c3", "c4", "0", "0", "0"},
+              {"c2", "0", "c1", "c4", "0", "c3", "0", "0", "0"},
+              {"0", "0", "0", "c1", "c2", "0", "c3", "c4", "0"},
+              {"0", "0", "0", "0", "c1", "c2", "0", "c3", "c4"},
+              {"0", "0", "0", "c2", "0", "c1", "c4", "0", "c3"},
+              {"c3", "c4", "0", "0", "0", "0", "c1", "c2", "0"},
+              {"0", "c3", "c4", "0", "0", "0", "0", "c1", "c2"},
+              {"c4", "0", "c3", "0", "0", "0", "c2", "0", "c1"}
+              }], ")"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(Eigenvalues[AA] // Simplify\) // MatrixForm\)], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+            {\(c1 + c2 + c3 + c4\)},
+            {\(c1 - c2\/2 - 1\/2\ \@3\ \@\(-\((c2 - c3)\)\^2\) - c3\/2 + 
+                c4\)},
+            {\(c1 + 
+                1\/2\ \((\(-c2\) + \@3\ \@\(-\((c2 - c3)\)\^2\) - c3 + 
+                      2\ c4)\)\)},
+            {\(c1 - c2\/2 + c3 - c4\/2 - 
+                1\/2\ \@3\ \@\(-\((c2 + c4)\)\^2\)\)},
+            {\(c1 + 
+                1\/2\ \((\(-c2\) + 2\ c3 - 
+                      c4 + \@3\ \@\(-\((c2 + c4)\)\^2\))\)\)},
+            {\(c1 + c2 - c3\/2 - c4\/2 - 
+                1\/2\ \@3\ \@\(-\((c3 + c4)\)\^2\)\)},
+            {\(c1 + 
+                1\/2\ \((2\ c2 - c3 - 
+                      c4 + \@3\ \@\(-\((c3 + c4)\)\^2\))\)\)},
+            {\(1\/2\ \((2\ c1 - c2 - c3 - \@3\ \@\(-\((c2 + c3 - c4)\)\^2\) - 
+                    c4)\)\)},
+            {\(1\/2\ \((2\ c1 - c2 - c3 + \@3\ \@\(-\((c2 + c3 - c4)\)\^2\) - 
+                    c4)\)\)}
+            }], "\[NoBreak]", ")"}],
+      MatrixForm[ {
+        Plus[ c1, c2, c3, c4], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ -1, 2], c2], 
+          Times[ 
+            Rational[ -1, 2], 
+            Power[ 3, 
+              Rational[ 1, 2]], 
+            Power[ 
+              Times[ -1, 
+                Power[ 
+                  Plus[ c2, 
+                    Times[ -1, c3]], 2]], 
+              Rational[ 1, 2]]], 
+          Times[ 
+            Rational[ -1, 2], c3], c4], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ 1, 2], 
+            Plus[ 
+              Times[ -1, c2], 
+              Times[ 
+                Power[ 3, 
+                  Rational[ 1, 2]], 
+                Power[ 
+                  Times[ -1, 
+                    Power[ 
+                      Plus[ c2, 
+                        Times[ -1, c3]], 2]], 
+                  Rational[ 1, 2]]], 
+              Times[ -1, c3], 
+              Times[ 2, c4]]]], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ -1, 2], c2], c3, 
+          Times[ 
+            Rational[ -1, 2], c4], 
+          Times[ 
+            Rational[ -1, 2], 
+            Power[ 3, 
+              Rational[ 1, 2]], 
+            Power[ 
+              Times[ -1, 
+                Power[ 
+                  Plus[ c2, c4], 2]], 
+              Rational[ 1, 2]]]], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ 1, 2], 
+            Plus[ 
+              Times[ -1, c2], 
+              Times[ 2, c3], 
+              Times[ -1, c4], 
+              Times[ 
+                Power[ 3, 
+                  Rational[ 1, 2]], 
+                Power[ 
+                  Times[ -1, 
+                    Power[ 
+                      Plus[ c2, c4], 2]], 
+                  Rational[ 1, 2]]]]]], 
+        Plus[ c1, c2, 
+          Times[ 
+            Rational[ -1, 2], c3], 
+          Times[ 
+            Rational[ -1, 2], c4], 
+          Times[ 
+            Rational[ -1, 2], 
+            Power[ 3, 
+              Rational[ 1, 2]], 
+            Power[ 
+              Times[ -1, 
+                Power[ 
+                  Plus[ c3, c4], 2]], 
+              Rational[ 1, 2]]]], 
+        Plus[ c1, 
+          Times[ 
+            Rational[ 1, 2], 
+            Plus[ 
+              Times[ 2, c2], 
+              Times[ -1, c3], 
+              Times[ -1, c4], 
+              Times[ 
+                Power[ 3, 
+                  Rational[ 1, 2]], 
+                Power[ 
+                  Times[ -1, 
+                    Power[ 
+                      Plus[ c3, c4], 2]], 
+                  Rational[ 1, 2]]]]]], 
+        Times[ 
+          Rational[ 1, 2], 
+          Plus[ 
+            Times[ 2, c1], 
+            Times[ -1, c2], 
+            Times[ -1, c3], 
+            Times[ -1, 
+              Power[ 3, 
+                Rational[ 1, 2]], 
+              Power[ 
+                Times[ -1, 
+                  Power[ 
+                    Plus[ c2, c3, 
+                      Times[ -1, c4]], 2]], 
+                Rational[ 1, 2]]], 
+            Times[ -1, c4]]], 
+        Times[ 
+          Rational[ 1, 2], 
+          Plus[ 
+            Times[ 2, c1], 
+            Times[ -1, c2], 
+            Times[ -1, c3], 
+            Times[ 
+              Power[ 3, 
+                Rational[ 1, 2]], 
+              Power[ 
+                Times[ -1, 
+                  Power[ 
+                    Plus[ c2, c3, 
+                      Times[ -1, c4]], 2]], 
+                Rational[ 1, 2]]], 
+            Times[ -1, c4]]]}]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Det[A]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-768\)\ a\^3\ b\^2\ c - 256\ a\^3\ c\^3\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Det[B]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-768\)\ a\^2\ b\^3\ c - 256\ b\^3\ c\^3\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Det[AA] // FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(64\ c\ \((3\ a\^2 + c\^2)\)\ \((3\ b\^2 + 
+          c\^2)\)\ \((9\ \((a\^2 - b\^2)\)\^2 + 6\ \((a\^2 + b\^2)\)\ c\^2 + 
+          c\^4)\)\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{693, 682},
+WindowMargins->{{150, Automatic}, {Automatic, 52}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "mmcas"}, "eigchk.nb.ps", CharacterEncoding -> \
+"ISO8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 223, 4, 109, "Input"],
+Cell[1931, 56, 425, 10, 142, "Input"],
+
+Cell[CellGroupData[{
+Cell[2381, 70, 77, 1, 37, "Input"],
+Cell[2461, 73, 2427, 78, 227, "Output"]
+}, Open  ]],
+Cell[4903, 154, 425, 10, 142, "Input"],
+
+Cell[CellGroupData[{
+Cell[5353, 168, 77, 1, 37, "Input"],
+Cell[5433, 171, 2422, 78, 227, "Output"]
+}, Open  ]],
+Cell[7870, 252, 711, 13, 208, "Input"],
+
+Cell[CellGroupData[{
+Cell[8606, 269, 78, 1, 37, "Input"],
+Cell[8687, 272, 4509, 146, 357, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13233, 423, 39, 1, 37, "Input"],
+Cell[13275, 426, 75, 1, 38, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13387, 432, 39, 1, 37, "Input"],
+Cell[13429, 435, 75, 1, 38, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13541, 441, 56, 1, 37, "Input"],
+Cell[13600, 444, 172, 3, 41, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

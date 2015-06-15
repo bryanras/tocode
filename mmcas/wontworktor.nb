@@ -1,0 +1,245 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6996,        189]*)
+(*NotebookOutlinePosition[      7937,        219]*)
+(*  CellTagsIndexPosition[      7893,        215]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ 
+      This\ is\ a\ phase\ portrait\ of\ the\ torus\ from\ a\ \
+\[IndentingNewLine]\ 
+        forced\ van\ der\ Pol\ oscillator . \ See\ \(5/21\)/
+          03. \ *) \)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Enter\ the\ \(\(constants\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\[Lambda] = 1; a = 3;\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Solve\ \(\(it\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\(x1 = \@\(x[t]\^2 + y[t]\^2\)\) \)\(;\)\(\ \ \)\( (*\ 
+      Save\ some\ \(\(space\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[{
+    \(\(ode1 = \(x'\)[
+            t] \[Equal] \(\(x[
+                      t] \((x1 - 
+                        a)\)\)\/x1\) \((\[Lambda] - \((x1 - a)\)\^2 - 
+                  z[t]\^2)\) - \(y[t]\^2 + z[t]*x[t]\)\/x1;\)\), "\
+\[IndentingNewLine]", 
+    \(\(ode2 = \(y'\)[
+            t] \[Equal] \(\(y[
+                      t] \((x1 - 
+                        a)\)\)\/x1\) \((\[Lambda] - \((x1 - a)\)\^2 - 
+                  z[t]\^2)\) + \(x[t] y[t] - z[t] y[t]\)\/x1;\)\), "\
+\[IndentingNewLine]", 
+    \(\(ode3 = \(z'\)[t] \[Equal] \((x1 - a)\) + \[Lambda]*z[t] - 
+            z[t] \((\((x1 - a)\)\^2 + z[t]\^2)\);\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ 
+      Solve\ \(\(it\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ugh = 20;\)\)], "Input"],
+
+Cell[BoxData[{
+    \(\(soln1 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 2, y[0] \[Equal] 0.01, 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln2 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 4, y[0] \[Equal] 0.01, 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln3 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 2, y[0] \[Equal] \(-0.01\), 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln4 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 4, y[0] \[Equal] \(-0.01\), 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln5 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 2, y[0] \[Equal] 0.02, 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln6 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 4, y[0] \[Equal] 0.02, 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln7 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 2, y[0] \[Equal] \(-0.02\), 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, 
+            ugh}];\)\), "\[IndentingNewLine]", 
+    \(\(soln8 = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] 4, y[0] \[Equal] \(-0.02\), 
+            z[0] \[Equal] 0}, {x, y, z}, {t, 0, ugh}];\)\)}], "Input"],
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData[
+    \( (*\ Plot\ it\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(start = 0; stop = 15;\)], "Input"],
+
+Cell[BoxData[{
+    \(\(ugly1 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln1], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly2 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln2], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly3 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln3], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly4 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln4], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly5 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln5], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly6 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln6], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly7 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln7], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\), "\[IndentingNewLine]", 
+    \(\(ugly8 = 
+        ParametricPlot3D[
+          Evaluate[{x[t], y[t], z[t]} /. soln8], {t, start, stop}, 
+          PlotPoints \[Rule] 1500, 
+          DisplayFunction \[Rule] Identity];\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(hail = 
+        Show[{ugly1, ugly2, ugly3, ugly4, ugly5, ugly6, ugly7, ugly8}, 
+          PlotRange \[Rule] {{\(-4\), 4}, {\(-4\), 4}, {\(-1\), 1}}, 
+          Ticks \[Rule] {{\(-4\), 0, 4}, {\(-4\), 0, 4}, {\(-1\), 0, 1}}, 
+          DisplayFunction \[Rule] $DisplayFunction, 
+          Boxed \[Rule] False];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Export["\<wwtor.jpg\>", hail, "\<JPEG\>", 
+      ImageResolution \[Rule] 250]\)], "Input"]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{816, 798},
+WindowMargins->{{29, Automatic}, {0, Automatic}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "simp3d"}, "phase.nb.ps", CharacterEncoding -> \
+"iso8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 204, 5, 61, "Input"],
+Cell[1961, 58, 77, 1, 37, "Input"],
+Cell[2041, 61, 54, 1, 37, "Input"],
+Cell[2098, 64, 65, 1, 37, "Input"],
+Cell[2166, 67, 138, 2, 45, "Input"],
+Cell[2307, 71, 649, 14, 134, "Input"],
+Cell[2959, 87, 103, 2, 61, "Input"],
+Cell[3065, 91, 46, 1, 37, "Input"],
+Cell[3114, 94, 1504, 31, 397, "Input"],
+Cell[4621, 127, 26, 0, 37, "Input"],
+Cell[4650, 129, 51, 1, 37, "Input"],
+Cell[4704, 132, 54, 1, 37, "Input"],
+Cell[4761, 135, 1769, 40, 397, "Input"],
+Cell[6533, 177, 346, 6, 109, "Input"],
+Cell[6882, 185, 110, 2, 37, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

@@ -1,0 +1,439 @@
+%!PS-Adobe-3.0
+%%Title: MATLAB Command Window
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%DocumentFonts: Helvetica Helvetica-Bold
+%%+Helvetica-Oblique Helvetica-BoldOblique
+%%+Times-Roman Times-Bold Times-Italic Times-BoldItalic
+%%+Courier Courier-Bold Courier-Oblique Courier-BoldOblique
+%%EndComments
+%%BeginProlog
+/BD {bind def} bind def
+/D {def} BD
+/ISOF {
+	dup findfont dup length 1 add dict begin {
+		1 index /FID eq {pop pop} {D} ifelse
+	} forall /Encoding ISOLatin1Encoding D
+	currentdict end definefont
+} BD
+/F [
+	/Helvetica ISOF
+	/Helvetica-Bold ISOF
+	/Helvetica-Oblique ISOF
+	/Helvetica-BoldOblique ISOF
+	/Times-Roman ISOF
+	/Times-Bold ISOF
+	/Times-Italic ISOF
+	/Times-BoldItalic ISOF
+	/Courier ISOF
+	/Courier-Bold ISOF
+	/Courier-Oblique ISOF
+	/Courier-BoldOblique ISOF
+] D
+/R {4 2 roll moveto 1 index 0 rlineto
+	0 exch rlineto neg 0 rlineto closepath} BD
+/Adict 8 dict D
+Adict /mtrx matrix put
+/A { Adict begin
+    /endangle exch D /startangle exch D
+    /yrad exch D /xrad exch D
+	/y exch D /x exch D
+    /savematrix mtrx currentmatrix D
+    x y translate xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end } BD
+/PY {
+    dup 1 ge {3 1 roll moveto} if
+    -1 2 {pop lineto} for
+    {closepath} if
+} BD
+/CL { dup 0 exch -1 1 arct} BD
+/RCL { dup 0 exch 1 1 arct} BD
+/RRdict 8 dict D
+RRdict /mtrx matrix put
+/RR {RRdict begin
+    /yrad exch D /xrad exch D
+    /height exch D /width exch D
+    /y exch D /x exch D
+	/width width xrad div D /height height yrad div D
+	/savematrix mtrx currentmatrix D
+ 	x y translate xrad yrad scale -90 rotate
+	1 0 moveto width RCL width 0 translate -90 rotate
+    height CL height 0 translate -90 rotate
+	width RCL width 0 translate -90 rotate height CL closepath
+	savematrix setmatrix
+	end } BD
+/SC {3 {255 div 3 1 roll} repeat setrgbcolor} BD
+/SF {
+	F exch get exch scalefont setfont
+	(abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890) stringwidth pop div
+	currentfont exch scalefont setfont} BD
+/RC {R clip newpath} BD
+/IC {initclip} BD
+/RF {R fill} BD
+/RS {R stroke} BD
+/RRF {RR fill} BD
+/RRS {RR stroke} BD
+/AS {A stroke} BD
+/AF {6 -2 roll 2 copy moveto 6 2 roll A fill} BD
+/PYS {PY stroke} BD
+/PYF {PY eofill} BD
+/NZ {dup 1 lt {pop 1} if} BD
+/DS {
+	moveto 1 index stringwidth pop NZ sub
+	1 index length 1 sub NZ div 0
+	3 2 roll ashow} BD
+/DL {moveto lineto stroke} BD
+/S {scale} BD
+/SP {/P save D} BD
+/EP {showpage P restore} BD
+/GS {gsave} BD
+/GR {grestore} BD
+/CM {
+	/cmapr 256 array D
+	/cmapg 256 array D
+	/cmapb 256 array D
+	/cmapgray null D
+	3 string exch 0 exch 1 exch 1 sub {
+		currentfile 2 index readhexstring pop
+		cmapr 2 index 2 index 0 get put
+		cmapg 2 index 2 index 1 get put
+		cmapb 2 index 2 index 2 get put
+	pop pop } for pop
+} BD
+/DII {
+	GS
+	/imgsave save D
+	translate scale
+	/imgh exch D
+	/imgw exch D
+	/imgy exch neg D
+	/imgx exch neg D
+	/imgstr imgw string D
+	/colorimage where {
+		pop
+		/cimgstr imgw 3 mul string D
+		imgw imgh 8 [imgw 0 0 imgh neg imgx imgy] {
+			currentfile imgstr readhexstring pop
+			0 1 imgw 1 sub {
+				2 copy get
+				cmapr 1 index get
+				cimgstr exch 3 index
+				3 mul exch put
+				cmapg 1 index get
+				cimgstr exch 3 index
+				3 mul 1 add exch put
+				cmapb 1 index get
+				cimgstr exch 3 index
+				3 mul 2 add exch put
+			pop pop } for pop cimgstr
+		} false 3 colorimage
+	} {
+		cmapgray null eq {
+			/cmapgray cmapr length array D
+			0 1 cmapr length 1 sub {
+				cmapgray exch
+				cmapr 1 index get .299 mul
+				cmapg 2 index get .587 mul
+				cmapb 3 index get .114 mul
+				add add cvi put
+			} for
+		} if
+		imgw imgh 8 [imgw 0 0 imgh neg 0 0] {
+			currentfile imgstr readhexstring pop
+			0 1 imgw 1 sub {
+				imgstr exch 2 copy get
+				cmapgray exch get put
+			} for
+		} image
+	} ifelse
+	imgsave restore
+	GR
+} BD
+/DI {
+	GS
+	/imgsave save D
+	translate scale
+	/imgh exch D
+	/imgw exch D
+	/imgy exch neg D
+	/imgx exch neg D
+	/imgstr imgw 3 mul string D
+	imgw imgh 8 [imgw 0 0 imgh neg imgx imgy] {
+		currentfile imgstr readhexstring pop
+	} bind false 3 colorimage
+    imgsave restore
+    GR
+} BD
+%%EndProlog
+%%BeginSetup
+mark {
+%%BeginFeature: ManualFeed false
+1 dict dup /ManualFeed false put setpagedevice
+%%EndFeature
+} stopped {
+%%BeginFeature: *ManualFeed false
+  statusdict /manualfeed false put
+%%EndFeature
+} if cleartomark mark {
+%%BeginFeature: PageSize *Letter
+3 dict begin
+   /PageSize [612 792] def
+   /ImagingBBox null def
+   /Policies 1 dict dup/PageSize 3 put def
+ currentdict end setpagedevice
+%%EndFeature
+} stopped {
+  cleartomark statusdict begin mark {
+%%BeginFeature: *PageSize Letter
+  lettertray
+%%EndFeature
+  } stopped end
+} if cleartomark
+% now make sure we got what we requested!
+gsave initgraphics clippath pathbbox grestore
+5 dict begin
+  3 -1 roll /yoff exch def 3 -1 roll /xoff exch def
+  yoff sub /h exch def xoff sub /w exch def
+  w 576 lt h 756 lt or {
+    w 2 div xoff add h 2 div yoff add translate
+    w xoff 2 mul add 612 div
+    h yoff 2 mul add 792 div
+    2 copy gt {exch} if pop dup scale
+    -306 -396 translate
+  } if
+end
+
+%%EndSetup
+
+%%Page:  1 1
+SP
+0 0 0 SC
+% Font[Monospaced, 0, 9]
+315 9 8 SF
+(MATLAB Command Window) 105 36 749 DS
+(August 29, 2003) 75 36 738 DS
+(Page 1) 30 546 749 DS
+(7:42:20 AM) 50 526 738 DS
+36 732 576 732 DL
+36 734 576 734 DL
+% Font[Monospaced, 0, 10]
+315 10 8 SF
+(                              < M A T L A B >) 225 36 710 DS
+(                  Copyright 1984-2001 The MathWorks, Inc.) 285 36 699 DS
+(                       Version 6.1.0.450 Release 12.1) 265 36 688 DS
+(                                May 18 2001) 215 36 677 DS
+( ) 5 36 655 DS
+(  To get started, select "MATLAB Help" from the Help menu.) 290 36 644 DS
+( ) 5 36 633 DS
+(>> runit) 40 36 622 DS
+( ) 5 36 611 DS
+( ) 5 36 600 DS
+(Invariant tori are your friends.) 160 36 589 DS
+( ) 5 36 578 DS
+( ) 5 36 567 DS
+(Using alpha1 = 1, alpha2 = 1, alpha3 = 1, and eps0 = 1) 270 36 556 DS
+( Points in the i-direction: 29) 150 36 534 DS
+( Points in the j-direction: 30) 150 36 523 DS
+( Points in the k-direction: 31) 150 36 512 DS
+( ) 5 36 501 DS
+(Initial lambda \(default=0\): ) 140 36 490 DS
+(Final lambda \(default=initial\): 0.55) 180 36 479 DS
+( ) 5 36 468 DS
+(Initial lambda step \(default=0.05\): ) 180 36 457 DS
+( ) 5 36 446 DS
+(Save the new solution to disk? \(y/n default="n"\) y) 250 36 435 DS
+(\(g\)enerate a new torus \(default\) or \(l\)oad an old one? ) 275 36 424 DS
+( Generating the initial torus and normals ... Done.) 255 36 402 DS
+( Calculating the initial function ... Done. Initial norm = 3.10214) 330 36 391 DS
+( Generating the Jacobian ... Done.) 170 36 380 DS
+( Solving the system ...   Residual: 0.00176887   \(inf. norm\): 1.81562e-05) 365 36 369 DS
+( Returned outer: 1      Inner: 4        Relative residual: 0.00057021) 345 36 358 DS
+( |ff| =  3.10214         |yy| = 1.62723) 195 36 347 DS
+( Generating the Jacobian ... Done.) 170 36 336 DS
+( Solving the system ...   Residual: 0.00030821   \(inf. norm\): 3.71952e-06) 365 36 325 DS
+( Returned outer: 1      Inner: 5        Relative residual: 0.0116902) 340 36 314 DS
+( |ff| =  0.0263648       |yy| = 0.0136297) 205 36 303 DS
+( |ff| =  0.000308318) 100 36 292 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.) 265 36 281 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 248 DS
+( Calculating the initial function ... Done. Initial norm = 12.3855) 330 36 226 DS
+( Generating the Jacobian ... Done.) 170 36 215 DS
+( Solving the system ...   Residual: 0.0116839    \(inf. norm\): 0.000155896) 365 36 204 DS
+( Returned outer: 1      Inner: 7        Relative residual: 0.000943355) 350 36 193 DS
+( |ff| =  12.3855         |yy| = 6.15541) 195 36 182 DS
+( Generating the Jacobian ... Done.) 170 36 171 DS
+( Solving the system ...   Residual: 0.000605491          \(inf. norm\): 6.39789e-06) 405 36 160 DS
+( Returned outer: 1      Inner: 16       Relative residual: 0.001413) 335 36 149 DS
+( |ff| =  0.428515        |yy| = 0.231154) 200 36 138 DS
+( |ff| =  0.00102439) 95 36 127 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.05.) 280 36 116 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 83 DS
+( Calculating the initial function ... Done. Initial norm = 12.0877) 330 36 61 DS
+( Generating the Jacobian ... Done.) 170 36 50 DS
+( Solving the system ...   Residual: 0.0104698    \(inf. norm\): 0.000155805) 365 36 39 DS
+EP
+
+%%Page:  2 2
+SP
+0 0 0 SC
+% Font[Monospaced, 0, 9]
+315 9 8 SF
+(MATLAB Command Window) 105 36 749 DS
+(August 29, 2003) 75 36 738 DS
+(Page 2) 30 546 749 DS
+(7:42:20 AM) 50 526 738 DS
+36 732 576 732 DL
+36 734 576 734 DL
+% Font[Monospaced, 0, 10]
+315 10 8 SF
+( Returned outer: 1      Inner: 10       Relative residual: 0.000866148) 350 36 721 DS
+( |ff| =  12.0877         |yy| = 6.30667) 195 36 710 DS
+( Generating the Jacobian ... Done.) 170 36 699 DS
+( Solving the system ...   Residual: 0.000728452          \(inf. norm\): 6.89882e-06) 405 36 688 DS
+( Returned outer: 1      Inner: 19       Relative residual: 0.0016506) 340 36 677 DS
+( |ff| =  0.441326        |yy| = 0.253785) 200 36 666 DS
+( |ff| =  0.00125178) 95 36 655 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.1.) 275 36 644 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 611 DS
+( Calculating the initial function ... Done. Initial norm = 11.7828) 330 36 589 DS
+( Generating the Jacobian ... Done.) 170 36 578 DS
+( Solving the system ...   Residual: 0.0115952    \(inf. norm\): 0.000174833) 365 36 567 DS
+( Returned outer: 1      Inner: 11       Relative residual: 0.00098408) 345 36 556 DS
+( |ff| =  11.7828         |yy| = 6.47647) 195 36 545 DS
+( Generating the Jacobian ... Done.) 170 36 534 DS
+( Solving the system ...   Residual: 0.000693598          \(inf. norm\): 7.45739e-06) 405 36 523 DS
+( Returned outer: 1      Inner: 22       Relative residual: 0.00151851) 345 36 512 DS
+( |ff| =  0.456762        |yy| = 0.281964) 200 36 501 DS
+( |ff| =  0.00141872) 95 36 490 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.15.) 280 36 479 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 446 DS
+( Calculating the initial function ... Done. Initial norm = 11.4702) 330 36 424 DS
+( Generating the Jacobian ... Done.) 170 36 413 DS
+( Solving the system ...   Residual: 0.0108506    \(inf. norm\): 0.000175643) 365 36 402 DS
+( Returned outer: 1      Inner: 12       Relative residual: 0.000945979) 350 36 391 DS
+( |ff| =  11.4702         |yy| = 6.66995) 195 36 380 DS
+( Generating the Jacobian ... Done.) 170 36 369 DS
+( Solving the system ...   Residual: 0.000725641          \(inf. norm\): 8.0629e-06) 400 36 358 DS
+( Returned outer: 1      Inner: 25       Relative residual: 0.001526) 335 36 347 DS
+( |ff| =  0.475517        |yy| = 0.318266) 200 36 336 DS
+( |ff| =  0.00174238) 95 36 325 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.2.) 275 36 314 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 281 DS
+( Calculating the initial function ... Done. Initial norm = 11.1487) 330 36 259 DS
+( Generating the Jacobian ... Done.) 170 36 248 DS
+( Solving the system ...   Residual: 0.0107081    \(inf. norm\): 0.000172461) 365 36 237 DS
+( Returned outer: 1      Inner: 13       Relative residual: 0.000960486) 350 36 226 DS
+( |ff| =  11.1487         |yy| = 6.89435) 195 36 215 DS
+( Generating the Jacobian ... Done.) 170 36 204 DS
+( Solving the system ...   Residual: 0.000671935          \(inf. norm\): 9.09494e-06) 405 36 193 DS
+( Returned outer: 2      Inner: 2        Relative residual: 0.00134689) 345 36 182 DS
+( |ff| =  0.498878        |yy| = 0.367239) 200 36 171 DS
+( |ff| =  0.00221185) 95 36 160 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.25.) 280 36 149 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 116 DS
+( Calculating the initial function ... Done. Initial norm = 10.8164) 330 36 94 DS
+( Generating the Jacobian ... Done.) 170 36 83 DS
+( Solving the system ...   Residual: 0.0103458    \(inf. norm\): 0.000162957) 365 36 72 DS
+( Returned outer: 1      Inner: 14       Relative residual: 0.000956488) 350 36 61 DS
+( |ff| =  10.8164         |yy| = 7.16138) 195 36 50 DS
+( Generating the Jacobian ... Done.) 170 36 39 DS
+EP
+
+%%Page:  3 3
+SP
+0 0 0 SC
+% Font[Monospaced, 0, 9]
+315 9 8 SF
+(MATLAB Command Window) 105 36 749 DS
+(August 29, 2003) 75 36 738 DS
+(Page 3) 30 546 749 DS
+(7:42:20 AM) 50 526 738 DS
+36 732 576 732 DL
+36 734 576 734 DL
+% Font[Monospaced, 0, 10]
+315 10 8 SF
+( Solving the system ...   Residual: 0.000655262          \(inf. norm\): 1.07509e-05) 405 36 721 DS
+( Returned outer: 2      Inner: 6        Relative residual: 0.00123773) 345 36 710 DS
+( |ff| =  0.529407        |yy| = 0.438409) 200 36 699 DS
+( |ff| =  0.00315181) 95 36 688 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.3.) 275 36 677 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 644 DS
+( Calculating the initial function ... Done. Initial norm = 10.4709) 330 36 622 DS
+( Generating the Jacobian ... Done.) 170 36 611 DS
+( Solving the system ...   Residual: 0.0100802    \(inf. norm\): 0.000154019) 365 36 600 DS
+( Returned outer: 1      Inner: 15       Relative residual: 0.000962688) 350 36 589 DS
+( |ff| =  10.4709         |yy| = 7.4923) 190 36 578 DS
+( Generating the Jacobian ... Done.) 170 36 567 DS
+( Solving the system ...   Residual: 0.00068978   \(inf. norm\): 1.30859e-05) 365 36 556 DS
+( Returned outer: 2      Inner: 11       Relative residual: 0.00120589) 345 36 545 DS
+( |ff| =  0.572007        |yy| = 0.554017) 200 36 534 DS
+( Generating the Jacobian ... Done.) 170 36 523 DS
+( Solving the system ...   Residual: 0.000693377          \(inf. norm\): 1.15393e-05) 405 36 512 DS
+( Returned outer: 1      Inner: 10       Relative residual: 0.132201) 335 36 501 DS
+( |ff| =  0.00524487      |yy| = 0.00603019) 210 36 490 DS
+( |ff| =  0.000693722) 100 36 479 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.35.) 280 36 468 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 435 DS
+( Calculating the initial function ... Done. Initial norm = 10.1051) 330 36 413 DS
+( Generating the Jacobian ... Done.) 170 36 402 DS
+( Solving the system ...   Residual: 0.00888668   \(inf. norm\): 0.000193129) 365 36 391 DS
+( Returned outer: 1      Inner: 18       Relative residual: 0.000879424) 350 36 380 DS
+( |ff| =  10.1051         |yy| = 7.93024) 195 36 369 DS
+( Generating the Jacobian ... Done.) 170 36 358 DS
+( Solving the system ...   Residual: 0.000728495          \(inf. norm\): 1.04387e-05) 405 36 347 DS
+( Returned outer: 3      Inner: 22       Relative residual: 0.00114268) 345 36 336 DS
+( |ff| =  0.637532        |yy| = 0.780524) 200 36 325 DS
+( Generating the Jacobian ... Done.) 170 36 314 DS
+( Solving the system ...   Residual: 0.000732809          \(inf. norm\): 9.23274e-06) 405 36 303 DS
+( Returned outer: 2      Inner: 3        Relative residual: 0.0652726) 340 36 292 DS
+( |ff| =  0.0112269       |yy| = 0.0193889) 205 36 281 DS
+( |ff| =  0.000733464) 100 36 270 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.4.) 275 36 259 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 226 DS
+( Calculating the initial function ... Done. Initial norm = 9.71593) 330 36 204 DS
+( Generating the Jacobian ... Done.) 170 36 193 DS
+( Solving the system ...   Residual: 0.00916953   \(inf. norm\): 0.000225496) 365 36 182 DS
+( Returned outer: 1      Inner: 25       Relative residual: 0.000943762) 350 36 171 DS
+( |ff| =  9.71593         |yy| = 8.60704) 195 36 160 DS
+( Generating the Jacobian ... Done.) 170 36 149 DS
+( Solving the system ... GMRES flag 1. relres = 0.0108146 Going with direct soln.) 400 36 138 DS
+(  Dividing block 29.) 100 36 127 DS
+(Norm of weird matrix: 21.6761   Condition #: 281551   Residual: 8.99363e-14      \(inf. norm\): 5.92582e-15) 525 36 116 DS
+( |ff| =  0.765104        |yy| = 14.2045) 195 36 105 DS
+( Generating the Jacobian ... Done.) 170 36 94 DS
+( Solving the system ... GMRES flag 1. relres = 0.117789 Going with direct soln.) 395 36 83 DS
+(  Dividing block 29.) 100 36 72 DS
+(Norm of weird matrix: 22.1192   Condition #: 363987   Residual: 1.47244e-13      \(inf. norm\): 1.31108e-14) 525 36 61 DS
+( |ff| =  0.0742282       |yy| = 23.2925) 195 36 50 DS
+( Generating the Jacobian ... Done.) 170 36 39 DS
+EP
+
+%%Page:  4 4
+SP
+0 0 0 SC
+% Font[Monospaced, 0, 9]
+315 9 8 SF
+(MATLAB Command Window) 105 36 749 DS
+(August 29, 2003) 75 36 738 DS
+(Page 4) 30 546 749 DS
+(7:42:20 AM) 50 526 738 DS
+36 732 576 732 DL
+36 734 576 734 DL
+% Font[Monospaced, 0, 10]
+315 10 8 SF
+( Solving the system ... GMRES flag 1. relres = 0.011497 Going with direct soln.) 395 36 721 DS
+(  Dividing block 29.) 100 36 710 DS
+(Norm of weird matrix: 22.1731   Condition #: 345761   Residual: 9.92253e-15      \(inf. norm\): 9.28077e-16) 525 36 699 DS
+( |ff| =  0.132941        |yy| = 1.56531) 195 36 688 DS
+( |ff| =  0.00134557) 95 36 677 DS
+(Completed Newton iteration due to F-norm. Lambda = 0.45.) 280 36 666 DS
+( Updating and averaging the normal vectors ... Done.) 260 36 633 DS
+( Calculating the initial function ... Done. Initial norm = 9.2646) 325 36 611 DS
+( Generating the Jacobian ... Done.) 170 36 600 DS
+( Solving the system ...) 115 36 589 DS
+EP
+%%Trailer
+%%Pages: 4
+%%EOF

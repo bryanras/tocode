@@ -1,0 +1,239 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6116,        176]*)
+(*NotebookOutlinePosition[      7058,        206]*)
+(*  CellTagsIndexPosition[      7014,        202]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ This\ is\ a\ phase\ portrait\ of\ the\ Sil' 
+          nikov\ orbit\ from\ Hale - \(\(Kocak\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Enter\ the\ \(\(constants\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(a = 0.4; \[Lambda] = 1.6064;\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Solve\ \(\(it\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(ode1 = \(x'\)[t] \[Equal] y[t];\)\), "\[IndentingNewLine]", 
+    \(\(ode2 = \(y'\)[t] \[Equal] z[t];\)\), "\[IndentingNewLine]", 
+    \(\(ode3 = \(z'\)[t] \[Equal] \(-y[t]\) - 
+            a*z[t] + \[Lambda]*x[t] \((1.0 - x[t])\);\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(\( (*\ 
+      Linearize\ at\ the\ \(\(origin\)\(.\)\)\ *) \)\(\[IndentingNewLine]\)\( \
+(*\ Get\ the\ eigenvalues\ to\ verify\ that\ this\ is\ indeed\ a\ Sil' 
+        nokiv\ \(\(orbit\)\(.\)\)\ *) \)\(\[IndentingNewLine]\)\( (*\ 
+      Get\ the\ eigenvectors\ to\ get\ a\ good\ idea\ of\ where\ to\ \
+\(\(start\)\(.\)\)*) \)\)\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"Jac", "=", 
+        RowBox[{"(", GridBox[{
+              {"0", "1", "0"},
+              {"0", "0", "1"},
+              {"\[Lambda]", \(-1\), \(-a\)}
+              }], ")"}]}], ";", \(eiggy = Eigensystem[Jac]\), ";"}]], "Input"],
+
+Cell[BoxData[
+    \( (*\ Crunch\ the\ \(\(numbers\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(xinit = 
+        0.0001*\(\(eiggy[\([2]\)]\)[\([3]\)]\)[\([1]\)];\)\), "\
+\[IndentingNewLine]", 
+    \(\(yinit = 
+        0.0001*\(\(eiggy[\([2]\)]\)[\([3]\)]\)[\([2]\)];\)\), "\
+\[IndentingNewLine]", 
+    \(\(zinit = 
+        0.0001*\(\(eiggy[\([2]\)]\)[\([3]\)]\)[\([3]\)];\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(soln = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] xinit, y[0] \[Equal] yinit, 
+            z[0] \[Equal] zinit}, {x, y, z}, {t, 0, 25}, 
+          AccuracyGoal \[Rule] 21, PrecisionGoal \[Rule] 21, 
+          WorkingPrecision \[Rule] 25, MaxSteps \[Rule] 500000];\)\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Plot\ it\ *) \)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"(*", 
+      RowBox[{
+        RowBox[{"ugly4", "=", 
+          RowBox[{"ParametricPlot3D", "[", 
+            
+            RowBox[{\(Evaluate[{x[t], y[t], z[t]} /. soln]\), 
+              ",", \({t, 0, 15.4}\), ",", \(PlotPoints \[Rule] 500\), 
+              ",", \(AspectRatio \[Rule] 1\), 
+              ",", \(PlotRange \[Rule] {\(-1\), 1}\), 
+              ",", \(Ticks \[Rule] {{0, 1}, {0, 1}, {\(-1\), 0, 1}}\), 
+              ",", \(Boxed \[Rule] False\), 
+              ",", \(AxesLabel \[Rule] {"\<x\>", "\<y\>", "\<z\>"}\), ",", 
+              "\[IndentingNewLine]", \(AxesEdge \[Rule] {{1, \(-1\)}, \
+{\(-1\), \(-1\)}, {\(-1\), 1}}\), ",", 
+              RowBox[{"PlotLabel", "->", "\"\<\!\(\*
+StyleBox[\"\[Lambda]\",\nFontFamily->\"Symbol\"]\)=1.6064\>\""}]}], "]"}]}], 
+        ";"}], "*)"}]], "Input"],
+
+Cell[BoxData[
+    \( (*\ 
+      Now\ collect\ individual\ points\ and\ export\ \(\(them\)\(.\)\)\ *) \
+\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Set\ the\ cut - \(\(offs\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(st = 8; \ ct1 = 9; \ ct2 = 17; \ ct3 = 21.2;\), "\[IndentingNewLine]", 
+    \(pt1 = 3; \ pt2 = 26; \ pt3 = 19;\)}], "Input"],
+
+Cell[BoxData[
+    \( (*\ Set\ the\ time\ step\ \(\(sizes\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(sp1 = \((ct1 - st)\)/\((pt1 - 1)\);\)\), "\[IndentingNewLine]", 
+    \(\(sp2 = \((ct2 - ct1)\)/\((pt2 + 1)\);\)\), "\[IndentingNewLine]", 
+    \(\(sp3 = \((ct3 - ct2)\)/\((pt3 - 1)\);\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(whoa1 = 
+        Table[{x[t], y[t], z[t]} /. soln, {t, st, ct1, 
+            sp1}];\)\), "\[IndentingNewLine]", 
+    \(\(whoa2 = 
+        Table[{x[t], y[t], z[t]} /. soln, {t, ct1 + sp2, ct2, 
+            sp2}];\)\), "\[IndentingNewLine]", 
+    \(\(whoa3 = 
+        Table[{x[t], y[t], z[t]} /. soln, {t, ct2 + sp3, ct3, 
+            sp3}];\)\)}], "Input"],
+
+Cell[BoxData[{
+    \(\(whoa1 = Flatten[whoa1, 1];\)\), "\[IndentingNewLine]", 
+    \(\(whoa2 = Flatten[whoa2, 1];\)\), "\[IndentingNewLine]", 
+    \(\(whoa3 = Flatten[whoa3, 1];\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(whoa = 
+        Join[{{0.0, 0.0, 0.0}}, whoa1, whoa2, 
+          whoa3, {{0.0, 0.0, 0.0}}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(Length[whoa]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Export["\<50pt\>", whoa, "\<Table\>"];\)\)], "Input"]
+},
+FrontEndVersion->"4.2 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{730, 654},
+WindowMargins->{{175, Automatic}, {Automatic, 4}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "simp3d"}, "phase.nb.ps", CharacterEncoding -> \
+"iso8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 143, 2, 61, "Input"],
+Cell[1900, 55, 77, 1, 37, "Input"],
+Cell[1980, 58, 61, 1, 37, "Input"],
+Cell[2044, 61, 65, 1, 37, "Input"],
+Cell[2112, 64, 269, 4, 85, "Input"],
+Cell[2384, 70, 362, 6, 109, "Input"],
+Cell[2749, 78, 269, 7, 76, "Input"],
+Cell[3021, 87, 76, 1, 37, "Input"],
+Cell[3100, 90, 314, 8, 85, "Input"],
+Cell[3417, 100, 307, 5, 85, "Input"],
+Cell[3727, 107, 51, 1, 37, "Input"],
+Cell[3781, 110, 840, 17, 133, "Input"],
+Cell[4624, 129, 116, 3, 37, "Input"],
+Cell[4743, 134, 76, 1, 37, "Input"],
+Cell[4822, 137, 145, 2, 61, "Input"],
+Cell[4970, 141, 83, 1, 37, "Input"],
+Cell[5056, 144, 222, 3, 85, "Input"],
+Cell[5281, 149, 378, 9, 85, "Input"],
+Cell[5662, 160, 193, 3, 85, "Input"],
+Cell[5858, 165, 128, 3, 37, "Input"],
+Cell[5989, 170, 45, 1, 37, "Input"],
+Cell[6037, 173, 75, 1, 37, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

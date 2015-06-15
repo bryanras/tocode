@@ -1,0 +1,8 @@
+
+The code in this directory computes the periodic
+orbit in the forced van der Pol oscillator.
+
+1. Orthogonality condition
+2. Standard approach (i.e., normal projection) to solving this condition. 
+
+

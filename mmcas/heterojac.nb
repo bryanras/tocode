@@ -1,0 +1,190 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3522,        125]*)
+(*NotebookOutlinePosition[      4173,        148]*)
+(*  CellTagsIndexPosition[      4129,        144]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ 
+      This\ is\ just\ a\ little\ sheet\ for\ calculating\ the\ jacobian\ in\ \
+the\ heteroclinic\ \(\(cycle\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \( (*\ The\ \(\(system\)\(:\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(xdot = 
+        x*\((\[Lambda] - x\^2 - y\^2)\) - 
+          y\^2\/\@\(x\^2 + y\^2\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ydot = 
+        y*\((\[Lambda] - x\^2 - y\^2 + x\/\@\(x\^2 + y\^2\))\);\)\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ The\ \(\(derivatives\)\(:\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[\[PartialD]\_x\ xdot]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-3\)\ x\^2 - 
+      y\^2 + \(x\ y\^2\)\/\((x\^2 + y\^2)\)\^\(3/2\) + \[Lambda]\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[\[PartialD]\_y\ xdot]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-2\)\ x\ y - \(y\ \((2\ x\^2 + y\^2)\)\)\/\((x\^2 + \
+y\^2)\)\^\(3/2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[\[PartialD]\_x\ ydot]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-2\)\ x\ y + y\^3\/\((x\^2 + y\^2)\)\^\(3/2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[\[PartialD]\_y\ ydot]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-3\)\ y\^2 + 
+      x\^2\ \((\(-1\) + 
+            x\/\((x\^2 + y\^2)\)\^\(3/2\))\) + \[Lambda]\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ The\ critical\ \(\(points\)\(:\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{xdot \[Equal] 0, ydot \[Equal] 0}, {x, y}, 
+      VerifySolutions \[Rule] True]\)], "Input"],
+
+Cell[BoxData[
+    \({{y \[Rule] 0, x \[Rule] \(-\@\[Lambda]\)}, {y \[Rule] 0, 
+        x \[Rule] \@\[Lambda]}}\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.2 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{683, 708},
+WindowMargins->{{156, Automatic}, {Automatic, 44}},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 160, 3, 61, "Input"],
+Cell[1917, 56, 67, 1, 37, "Input"],
+Cell[1987, 59, 122, 3, 77, "Input"],
+Cell[2112, 64, 108, 2, 82, "Input"],
+Cell[2223, 68, 72, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[2320, 73, 67, 1, 37, "Input"],
+Cell[2390, 76, 114, 2, 62, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2541, 83, 67, 1, 38, "Input"],
+Cell[2611, 86, 106, 2, 64, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2754, 93, 67, 1, 37, "Input"],
+Cell[2824, 96, 81, 1, 62, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2942, 102, 67, 1, 38, "Input"],
+Cell[3012, 105, 131, 3, 59, "Output"]
+}, Open  ]],
+Cell[3158, 111, 77, 1, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[3260, 116, 119, 2, 37, "Input"],
+Cell[3382, 120, 124, 2, 44, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

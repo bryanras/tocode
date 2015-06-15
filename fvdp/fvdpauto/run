@@ -1,0 +1,11 @@
+
+# Change these depending on the value of omega.
+cp fvdp.f.84 fvdp.f
+cp c.fvdp.84 c.fvdp
+
+#cp fvdp.f.78 fvdp.f
+#cp c.fvdp.78 c.fvdp
+
+# Run it.
+@fc fvdp
+@r fvdp dat

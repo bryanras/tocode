@@ -1,0 +1,4 @@
+@cl
+rm s.dat
+rm plaut*
+rm *.auto

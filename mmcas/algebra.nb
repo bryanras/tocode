@@ -1,0 +1,149 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3034,         94]*)
+(*NotebookOutlinePosition[      3978,        124]*)
+(*  CellTagsIndexPosition[      3934,        120]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ 
+      Check\ our\ algebra\ in\ the\ case\ of\ the\ central\ \(\(differences\)\
+\(.\)\)\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Simplify[\(1\/\(2*del\)\) \((ripj*nipj - 
+              rimj*nimj)\) - \(\((ripj - rimj)\)\/\(2*
+                del\)\) \((nipj + nimj)\)\/2 - \(\((ripj + 
+                  rimj)\)\/2\) \((nipj - nimj)\)\/\(2*del\)]\)], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ Good . \ So\ that\ checks\ \(\(out\)\(.\)\)*) \)], "Input"],
+
+Cell[BoxData[
+    \( (*\ 
+      Check\ our\ suspicion\ in\ the\ case\ of\ the\ box\ \(\(scheme\)\(.\)\)\
+\ *) \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(FullSimplify[\(1\/\(2*del\)\) \((ripjp*nipjp + ripj*nipj - rijp*nijp - 
+              rij*nij)\) - \(\((ripjp + ripj - rijp - rij)\)\/\(2*
+                del\)\) \((nipjp + nipj + nijp + nij)\)\/4 - \(\((ripjp + 
+                  ripj + rijp + 
+                  rij)\)\/4\) \((nipjp + nipj - nijp - nij)\)\/\(2*del\)]\)], \
+"Input"],
+
+Cell[BoxData[
+    \(\(\(-\((nij - nijp)\)\)\ \((rij - rijp)\) + \((nipj - nipjp)\)\ \((ripj \
+- ripjp)\)\)\/\(4\ del\)\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \( (*\ Damn . \ \ That\ didn' 
+        t\ work\ out\ as\ nicely\ as\ we\ \(\(thought\)\(.\)\)*) \)], "Input"]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{736, 677},
+WindowMargins->{{145, Automatic}, {Automatic, 74}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "mmcas"}, "algebra.nb.ps", CharacterEncoding -> \
+"ISO8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 130, 3, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[1860, 57, 250, 4, 112, "Input"],
+Cell[2113, 63, 35, 1, 36, "Output"]
+}, Open  ]],
+Cell[2163, 67, 84, 1, 37, "Input"],
+Cell[2250, 70, 123, 3, 37, "Input"],
+
+Cell[CellGroupData[{
+Cell[2398, 77, 355, 6, 164, "Input"],
+Cell[2756, 85, 132, 2, 53, "Output"]
+}, Open  ]],
+Cell[2903, 90, 127, 2, 37, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

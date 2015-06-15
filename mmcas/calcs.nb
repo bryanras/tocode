@@ -1,0 +1,168 @@
+(************** Content-type: application/mathematica **************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4278,        116]*)
+(*NotebookOutlinePosition[      4929,        139]*)
+(*  CellTagsIndexPosition[      4885,        135]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(\(p = 5 - \@\(20  \[Lambda] - 31\);\)\), "\[IndentingNewLine]", 
+    \(\(q = \@\(p \((\[Lambda] - p)\)\);\)\), "\[IndentingNewLine]", 
+    \(Clear[p, q]\)}], "Input"],
+
+Cell[BoxData[
+    \(\(rhodot[\[Rho]_, \[Zeta]_] := \((\[Rho] + 
+              q)\) \((\(\(-1\)\/5\) \(\((\[Zeta] + p)\)\^2\) \((\[Zeta] + 
+                  p)\) \((\[Lambda] - 14\/5)\))\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(zetadot[\[Rho]_, \[Zeta]_] := \((\[Zeta] + 
+                p)\) \((\[Lambda] - \[Zeta] - 
+                p)\) - \((\[Rho] + q)\)\^2;\)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(tdot = 
+      Simplify[\((Cos[\[Phi]]*rhodot[t*Cos[\[Phi]], t*Sin[\[Phi]]] + 
+            Sin[\[Phi]]*zetadot[t*Cos[\[Phi]], t*Sin[\[Phi]]])\)]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(1\/5\)\)\ \((\(-\(14\/5\)\) + \[Lambda])\)\ Cos[\[Phi]]\ \((q + 
+            t\ Cos[\[Phi]])\)\ \((p + t\ Sin[\[Phi]])\)\^3 + 
+      Sin[\[Phi]]\ \((\(-\((q + t\ Cos[\[Phi]])\)\^2\) - \((p + 
+                  t\ Sin[\[Phi]])\)\ \((p - \[Lambda] + 
+                  t\ Sin[\[Phi]])\))\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(phidot = 
+      Simplify[\((zetadot[t*Cos[\[Phi]], t*Sin[\[Phi]]] - 
+              rhodot[t*Cos[\[Phi]], t*Sin[\[Phi]]] - 
+              tdot \((Sin[\[Phi]] - Cos[\[Phi]])\))\)/\((t \((Sin[\[Phi]] + 
+                  Cos[\[Phi]])\))\)]\)], "Input"],
+
+Cell[BoxData[
+    \(\(-\(\((\((q + t\ Cos[\[Phi]])\)\^2 - 
+            1\/5\ \((\(-\(14\/5\)\) + \[Lambda])\)\ \((q + 
+                  t\ Cos[\[Phi]])\)\ \((p + t\ Sin[\[Phi]])\)\^3 + \((p + 
+                  t\ Sin[\[Phi]])\)\ \((p - \[Lambda] + 
+                  t\ Sin[\[Phi]])\) + \((\(-Cos[\[Phi]]\) + 
+                  Sin[\[Phi]])\)\ \((\(-\(1\/5\)\)\ \((\(-\(14\/5\)\) + \
+\[Lambda])\)\ Cos[\[Phi]]\ \((q + 
+                        t\ Cos[\[Phi]])\)\ \((p + t\ Sin[\[Phi]])\)\^3 + 
+                  Sin[\[Phi]]\ \((\(-\((q + t\ Cos[\[Phi]])\)\^2\) - \((p + 
+                              t\ Sin[\[Phi]])\)\ \((p - \[Lambda] + 
+                              t\ Sin[\[Phi]])\))\))\))\)/\((t\ \((Cos[\[Phi]] \
++ Sin[\[Phi]])\))\)\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData[
+    \(\(-\(1\/5\)\)\ \((\(-\(14\/5\)\) + \[Lambda])\)\ Cos[\[Phi]]\ \((q + 
+            t\ Cos[\[Phi]])\)\ \((p + t\ Sin[\[Phi]])\)\^3 + 
+      Sin[\[Phi]]\ \((\(-\((q + t\ Cos[\[Phi]])\)\^2\) - \((p + 
+                  t\ Sin[\[Phi]])\)\ \((p - \[Lambda] + 
+                  t\ Sin[\[Phi]])\))\)\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.1 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{729, 700},
+WindowMargins->{{150, Automatic}, {Automatic, 52}},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1705, 50, 187, 3, 102, "Input"],
+Cell[1895, 55, 204, 3, 62, "Input"],
+Cell[2102, 60, 171, 3, 38, "Input"],
+
+Cell[CellGroupData[{
+Cell[2298, 67, 176, 3, 109, "Input"],
+Cell[2477, 72, 326, 5, 81, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2840, 82, 269, 5, 109, "Input"],
+Cell[3112, 89, 758, 12, 185, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3907, 106, 26, 0, 37, "Input"],
+Cell[3936, 108, 326, 5, 81, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

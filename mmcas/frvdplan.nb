@@ -1,0 +1,262 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8061,        204]*)
+(*NotebookOutlinePosition[      9206,        239]*)
+(*  CellTagsIndexPosition[      9162,        235]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ This\ is\ a\ 2 - 
+        D\ analysis\ of\ the\ forced\ van\ der\ \(\(Pol\)\(.\)\)\ *) \)], \
+"Input"],
+
+Cell[BoxData[
+    \( (*\ Enter\ the\ \(\(ODE\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(\[Alpha] = 0.4;\)\)\)], "Input"],
+
+Cell[BoxData[{
+    \(\(ode1 = \(x'\)[t] \[Equal] \(-y[t]\) + \ 
+            ft;\)\), "\[IndentingNewLine]", 
+    \(\(ode2 = \(y'\)[t] \[Equal] 
+          x[t] + \[Alpha]*y[t] \((1 - y[t]\^2/3)\);\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ 
+      Integrate\ this\ bad\ \(\(boy\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(start1 = 0; \ end1 = 100; \ start2 = end1 - 10;\)], "Input"],
+
+Cell[BoxData[{
+    \(\(soln1 = 
+        NDSolve[{ode1, ode2, x[0] \[Equal] 1, y[0] \[Equal] 1} /. 
+            ft \[Rule] 0, {x, y}, {t, start1, end1}, 
+          MaxSteps \[Rule] 100000];\)\), "\[IndentingNewLine]", 
+    \(\(soln2 = 
+        NDSolve[{ode1, ode2, x[0] \[Equal] 1, y[0] \[Equal] 1} /. 
+            ft \[Rule] 0.4, {x, y}, {t, start1, end1}, 
+          MaxSteps \[Rule] 100000];\)\), "\[IndentingNewLine]", 
+    \(\(soln3 = 
+        NDSolve[{ode1, ode2, x[0] \[Equal] 1, y[0] \[Equal] 1} /. 
+            ft \[Rule] 0.8, {x, y}, {t, start1, end1}, 
+          MaxSteps \[Rule] 100000];\)\), "\[IndentingNewLine]", 
+    \(\(soln4 = 
+        NDSolve[{ode1, ode2, x[0] \[Equal] 1, y[0] \[Equal] 1} /. 
+            ft \[Rule] \(-0.4\), {x, y}, {t, start1, end1}, 
+          MaxSteps \[Rule] 100000];\)\), "\[IndentingNewLine]", 
+    \(\(soln5 = 
+        NDSolve[{ode1, ode2, x[0] \[Equal] 1, y[0] \[Equal] 1} /. 
+            ft \[Rule] \(-0.8\), {x, y}, {t, start1, end1}, 
+          MaxSteps \[Rule] 100000];\)\)}], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ 
+      Now\ plot\ \(\(it\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[{
+    RowBox[{
+      RowBox[{"ugly1", "=", 
+        RowBox[{"ParametricPlot", "[", 
+          
+          RowBox[{\(Evaluate[{x[t], y[t]} /. soln1]\), 
+            ",", \({t, start2, end1}\), 
+            ",", \(AxesLabel \[Rule] {"\<x\>", "\< \>"}\), 
+            ",", \(PlotPoints \[Rule] 600\), 
+            ",", \(PlotRange \[Rule] {{\(-2.1\), 2.1}, {\(-2.1\), 2.1}}\), 
+            ",", 
+            RowBox[{"PlotLabel", "\[Rule]", "\"\<\!\(\*
+StyleBox[\"\[Lambda]cos\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\"\[Omega]t\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)=0\>\""}], 
+            ",", \(Ticks \[Rule] {{\(-1\), 1}, {\(-1\), 1}}\), 
+            ",", \(DisplayFunction \[Rule] Identity\)}], "]"}]}], 
+      ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"ugly2", "=", 
+        RowBox[{"ParametricPlot", "[", 
+          
+          RowBox[{\(Evaluate[{x[t], y[t]} /. soln2]\), 
+            ",", \({t, start2, end1}\), 
+            ",", \(AxesLabel \[Rule] {"\<x\>", "\< \>"}\), 
+            ",", \(PlotPoints \[Rule] 600\), 
+            ",", \(PlotRange \[Rule] {{\(-2.5\), 2.5}, {\(-2.5\), 2.5}}\), 
+            ",", 
+            RowBox[{"PlotLabel", "\[Rule]", "\"\<\!\(\*
+StyleBox[\"\[Lambda]cos\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\"\[Omega]t\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)=0.4\>\""}], 
+            ",", \(Ticks \[Rule] {{\(-1\), 1}, {\(-1\), 1}}\), 
+            ",", \(DisplayFunction \[Rule] Identity\)}], "]"}]}], 
+      ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"ugly3", "=", 
+        RowBox[{"ParametricPlot", "[", 
+          
+          RowBox[{\(Evaluate[{x[t], y[t]} /. soln3]\), 
+            ",", \({t, start2, end1}\), 
+            ",", \(AxesLabel \[Rule] {"\<x\>", "\< \>"}\), 
+            ",", \(PlotPoints \[Rule] 600\), 
+            ",", \(PlotRange \[Rule] {{\(-2.5\), 2.5}, {\(-2.5\), 2.5}}\), 
+            ",", 
+            RowBox[{"PlotLabel", "\[Rule]", "\"\<\!\(\*
+StyleBox[\"\[Lambda]cos\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\"\[Omega]t\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)=0.8\>\""}], 
+            ",", \(Ticks \[Rule] {{\(-1\), 1}, {\(-1\), 1}}\), 
+            ",", \(DisplayFunction \[Rule] Identity\)}], "]"}]}], 
+      ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"ugly4", "=", 
+        RowBox[{"ParametricPlot", "[", 
+          
+          RowBox[{\(Evaluate[{x[t], y[t]} /. soln4]\), 
+            ",", \({t, start2, end1}\), 
+            ",", \(AxesLabel \[Rule] {"\<x\>", "\< \>"}\), 
+            ",", \(PlotPoints \[Rule] 600\), 
+            ",", \(PlotRange \[Rule] {{\(-2.5\), 2.5}, {\(-2.5\), 2.5}}\), 
+            ",", 
+            RowBox[{"PlotLabel", "\[Rule]", "\"\<\!\(\*
+StyleBox[\"\[Lambda]cos\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\"\[Omega]t\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)=-0.4\>\""}], 
+            ",", \(Ticks \[Rule] {{\(-1\), 1}, {\(-1\), 1}}\), 
+            ",", \(DisplayFunction \[Rule] Identity\)}], "]"}]}], 
+      ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+      RowBox[{"ugly5", "=", 
+        RowBox[{"ParametricPlot", "[", 
+          
+          RowBox[{\(Evaluate[{x[t], y[t]} /. soln5]\), 
+            ",", \({t, start2, end1}\), 
+            ",", \(AxesLabel \[Rule] {"\<x\>", "\< \>"}\), 
+            ",", \(PlotPoints \[Rule] 600\), 
+            ",", \(PlotRange \[Rule] {{\(-2.5\), 2.5}, {\(-2.5\), 2.5}}\), 
+            ",", 
+            RowBox[{"PlotLabel", "\[Rule]", "\"\<\!\(\*
+StyleBox[\"\[Lambda]cos\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\"\[Omega]t\",\nFontFamily->\"Symbol\"]\)\!\(\*
+StyleBox[\" \",\nFontFamily->\"Symbol\"]\)=-0.8\>\""}], 
+            ",", \(Ticks \[Rule] {{\(-1\), 1}, {\(-1\), 1}}\), 
+            ",", \(DisplayFunction \[Rule] Identity\)}], "]"}]}], 
+      ";"}]}], "Input"],
+
+Cell[BoxData[
+    \( (*\ All\ together, \ \(\(now\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\ \)\(g4 = 
+        Show[GraphicsArray[{{ugly3, ugly5}, {ugly2, 
+                ugly4}, {ugly1}}]];\)\)\)], "Input"],
+
+Cell[BoxData[
+    \(Export["\<vdppln.eps\>", g4]\)], "Input"]
+},
+FrontEndVersion->"4.2 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+ScreenStyleEnvironment->"Working",
+PrintingStyleEnvironment->"Presentation",
+WindowSize->{719, 792},
+WindowMargins->{{36, Automatic}, {Automatic, 22}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PrintingMargins"->{{54, 54}, {72, 72}},
+"PaperSize"->{612, 792},
+"PaperOrientation"->"Landscape",
+"PrintCellBrackets"->False,
+"PrintRegistrationMarks"->True,
+"PrintMultipleHorizontalPages"->False,
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "thesis"}, "damn.ps", CharacterEncoding -> "iso8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 127, 3, 37, "Input"],
+Cell[1884, 56, 71, 1, 37, "Input"],
+Cell[1958, 59, 62, 1, 37, "Input"],
+Cell[2023, 62, 211, 4, 61, "Input"],
+Cell[2237, 68, 119, 2, 61, "Input"],
+Cell[2359, 72, 80, 1, 37, "Input"],
+Cell[2442, 75, 1034, 20, 253, "Input"],
+Cell[3479, 97, 107, 2, 61, "Input"],
+Cell[3589, 101, 4181, 90, 493, "Input"],
+Cell[7773, 193, 76, 1, 37, "Input"],
+Cell[7852, 196, 141, 3, 37, "Input"],
+Cell[7996, 201, 61, 1, 37, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

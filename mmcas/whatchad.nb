@@ -1,0 +1,177 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 4.2'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4059,        118]*)
+(*NotebookOutlinePosition[      5124,        151]*)
+(*  CellTagsIndexPosition[      5080,        147]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ Enter\ the\ known\ \(\(quantities\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(dxdth1 = 
+        0.1  Cos[\[Theta]]\^2 - 
+          Sin[\[Theta]] \((1 + 0.1  Sin[\[Theta]])\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(dxdth2 = 
+        0.2  Cos[\[Theta]] Sin[\[Theta]] + Cos[\[Theta]];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(bigfee1 = \((1 + 0.1  Sin[\[Theta]])\) \((Cos[\[Theta]] - 
+              Sin[\[Theta]] - \(\((1 + 0.1  Sin[\[Theta]])\)\^2\) 
+                Cos[\[Theta]])\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(bigfee2 = \((1 + 0.1  Sin[\[Theta]])\) \((Cos[\[Theta]] + 
+              Sin[\[Theta]] - \(\((1 + 0.1  Sin[\[Theta]])\)\^2\) 
+                Sin[\[Theta]])\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ 
+      Now\ calculate\ the\ \(\(schtuff\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(normer = dxdth1\^2 + dxdth2\^2;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(inpro = bigfee1*dxdth1 + bigfee2*dxdth2;\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ And\ this\ should\ not, \ 
+      in\ general, \ equal\ to\ \(\(one\)\(.\)\)\ *) \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(answer = \ inpro/normer // Simplify\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(\[IndentingNewLine]\)\( (*\ In\ fact, \ 
+      this\ should\ equal\ to\ one\ in\ the\ case\ that\ \[Theta] = \((2  n + 
+              1)\) \[Pi]/2\ *) \)\)\)], "Input"],
+
+Cell[BoxData[{
+    \(answer /. \[Theta] \[Rule] 3  \[Pi]/2\), "\[IndentingNewLine]", 
+    \(answer /. \[Theta] \[Rule] \[Pi]/2\)}], "Input"],
+
+Cell[BoxData[{
+    \(\[IndentingNewLine] (*\ But, \ as\ I\ said, \ 
+      this\ is\ not\ true\ in\ \(\(general\)\(.\)\)\ *) \
+\[IndentingNewLine]answer /. \[Theta] \[Rule] \[Pi]/
+          4\), "\[IndentingNewLine]", 
+    \(answer /. \[Theta] \[Rule] 3.9\), "\[IndentingNewLine]", 
+    \(answer /. \[Theta] \[Rule] \[Pi]\)}], "Input"],
+
+Cell[BoxData[
+    \(\(Plot[answer, {\[Theta], 0, 2  \[Pi]}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(ParametricPlot[{{Cos[\[Theta]], 
+            Sin[\[Theta]]}, \((1 + 0.1  Sin[\[Theta]])\) {Cos[\[Theta]], 
+              Sin[\[Theta]]}}, {\[Theta], 0, 2  \[Pi]}, 
+        AspectRatio \[Rule] 1, 
+        PlotStyle \[Rule] {{RGBColor[1, 0, 0]}, {RGBColor[0, 0, 
+                0]}}];\)\)], "Input"]
+},
+FrontEndVersion->"4.2 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{848, 600},
+WindowMargins->{{Automatic, 116}, {Automatic, 131}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PrintingMargins"->{{54, 54}, {72, 72}},
+"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PrintCellBrackets"->False,
+"PrintRegistrationMarks"->True,
+"PrintMultipleHorizontalPages"->False,
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras"}, "whatcha.nb.ps", CharacterEncoding -> "iso8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 85, 1, 37, "Input"],
+Cell[1842, 54, 133, 3, 38, "Input"],
+Cell[1978, 59, 104, 2, 37, "Input"],
+Cell[2085, 63, 196, 3, 40, "Input"],
+Cell[2284, 68, 196, 3, 40, "Input"],
+Cell[2483, 73, 122, 2, 61, "Input"],
+Cell[2608, 77, 68, 1, 38, "Input"],
+Cell[2679, 80, 77, 1, 37, "Input"],
+Cell[2759, 83, 149, 2, 61, "Input"],
+Cell[2911, 87, 68, 1, 37, "Input"],
+Cell[2982, 90, 192, 3, 61, "Input"],
+Cell[3177, 95, 140, 2, 61, "Input"],
+Cell[3320, 99, 334, 6, 133, "Input"],
+Cell[3657, 107, 75, 1, 37, "Input"],
+Cell[3735, 110, 320, 6, 61, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

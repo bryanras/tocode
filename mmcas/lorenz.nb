@@ -1,0 +1,201 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4371,        139]*)
+(*NotebookOutlinePosition[      5311,        169]*)
+(*  CellTagsIndexPosition[      5267,        165]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \( (*\ 
+      This\ is\ a\ phase\ portrait\ of\ the\ Lorenz\ \(\(system\)\(.\)\)\ *) \
+\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Enter\ the\ \(\(constants\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(b = 8/3; \[Sigma] = 10; \ \[Lambda] = 24.5;\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Solve\ \(\(it\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[{
+    \(\(ode1 = \(x'\)[
+            t] \[Equal] \[Sigma] \((y[t] - 
+                x[t])\);\)\), "\[IndentingNewLine]", 
+    \(\(ode2 = \(y'\)[t] \[Equal] \[Lambda]*x[t] - y[t] - 
+            x[t] z[t];\)\), "\[IndentingNewLine]", 
+    \(\(ode3 = \(z'\)[t] \[Equal] x[t] y[t] - b*z[t];\)\)}], "Input"],
+
+Cell[BoxData[
+    \( (*\ Set\ IC\ and\ crunch\ the\ \(\(numbers\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(xinit = \(-10\); \ yinit = \(-10\); zinit = 25; maxt = 25;\)], "Input"],
+
+Cell[BoxData[
+    \(\(soln = 
+        NDSolve[{ode1, ode2, ode3, x[0] \[Equal] xinit, y[0] \[Equal] yinit, 
+            z[0] \[Equal] zinit}, {x, y, z}, {t, 0, maxt}, 
+          AccuracyGoal \[Rule] 20, MaxSteps \[Rule] 500000];\)\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Plot\ it\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(mint = 10; st = 1; \ ct1 = 1.661;\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"ugly4", "=", 
+        RowBox[{"ParametricPlot3D", "[", 
+          
+          RowBox[{\(Evaluate[{x[t], y[t], z[t]} /. soln]\), 
+            ",", \({t, st, ct1}\), ",", \(PlotPoints \[Rule] 100\), 
+            ",", \(AspectRatio \[Rule] 1\), ",", \(Boxed \[Rule] False\), 
+            ",", \(AxesLabel \[Rule] {"\<x\>", "\<y\>", "\<z\>"}\), ",", 
+            RowBox[{"PlotLabel", "->", "\"\<\!\(\*
+StyleBox[\"\[Lambda]\",\nFontFamily->\"Symbol\"]\)=24\>\""}]}], "]"}]}], 
+      ";"}]], "Input"],
+
+Cell[BoxData[
+    \( (*\ 
+      Now\ collect\ individual\ points\ and\ export\ \(\(them\)\(.\)\)\ *) \
+\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Set\ the\ cut - \(\(offs\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(pt1 = 100;\)\)], "Input"],
+
+Cell[BoxData[
+    \( (*\ Set\ the\ time\ step\ \(\(sizes\)\(.\)\)\ *) \)], "Input"],
+
+Cell[BoxData[
+    \(\(sp1 = \((ct1 - st)\)/\((pt1 - 1)\);\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(whoa1 = 
+        Table[{x[t], y[t], z[t]} /. soln, {t, st, ct1, sp1}];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(whoa1 = Flatten[whoa1, 1];\)\)], "Input"],
+
+Cell[BoxData[
+    \( (*\(whoa = 
+          Join[{{0.0, 0.0, 0.0}}, whoa1, whoa2, 
+            whoa3, {{0.0, 0.0, 0.0}}];\)*) \)], "Input"],
+
+Cell[BoxData[
+    \(Length[whoa1]\)], "Input"],
+
+Cell[BoxData[
+    \(\(Export["\<100pt\>", whoa1, "\<Table\>"];\)\)], "Input"]
+},
+FrontEndVersion->"5.0 for X",
+ScreenRectangle->{{0, 1152}, {0, 900}},
+WindowSize->{984, 871},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperSize"->{612, 792},
+"PaperOrientation"->"Portrait",
+"PostScriptOutputFile":>FrontEnd`FileName[{$RootDirectory, "home", \
+"bryanras", "torus", "simp3d"}, "phase.nb.ps", CharacterEncoding -> \
+"iso8859-1"],
+"Magnification"->1},
+Magnification->1.25
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 118, 3, 37, "Input"],
+Cell[1875, 56, 77, 1, 37, "Input"],
+Cell[1955, 59, 76, 1, 37, "Input"],
+Cell[2034, 62, 65, 1, 37, "Input"],
+Cell[2102, 65, 316, 6, 85, "Input"],
+Cell[2421, 73, 90, 1, 37, "Input"],
+Cell[2514, 76, 91, 1, 37, "Input"],
+Cell[2608, 79, 243, 4, 61, "Input"],
+Cell[2854, 85, 51, 1, 37, "Input"],
+Cell[2908, 88, 66, 1, 37, "Input"],
+Cell[2977, 91, 535, 11, 85, "Input"],
+Cell[3515, 104, 116, 3, 37, "Input"],
+Cell[3634, 109, 76, 1, 37, "Input"],
+Cell[3713, 112, 47, 1, 37, "Input"],
+Cell[3763, 115, 83, 1, 37, "Input"],
+Cell[3849, 118, 72, 1, 37, "Input"],
+Cell[3924, 121, 107, 2, 37, "Input"],
+Cell[4034, 125, 63, 1, 37, "Input"],
+Cell[4100, 128, 138, 3, 37, "Input"],
+Cell[4241, 133, 46, 1, 37, "Input"],
+Cell[4290, 136, 77, 1, 37, "Input"]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
